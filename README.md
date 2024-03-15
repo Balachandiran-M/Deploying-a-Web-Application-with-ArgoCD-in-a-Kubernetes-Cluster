@@ -54,6 +54,11 @@ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/7120b859-7a06-4ab7-a5a2-7accf8c675bf" alt="Screenshot 2024-03-15 171623">
 
+<img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/6080b811-13b0-42d3-b486-d2dbe7c13d62">
+
+![Screenshot 2024-03-15 175533](https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/6080b811-13b0-42d3-b486-d2dbe7c13d62)
+
+
 <h2>Task 4: Challenges and Cleanup</h2>
 <ul>
   <li>I deleted the Kubernetes cluster using the following eksctl command:</li>
