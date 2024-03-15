@@ -21,7 +21,7 @@ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 </code></pre>
 
 <h2>Task 2: Creating the GitOps Pipeline</h2>
-<p>For this task, I developed a web monitoring application using Python that displays real-time CPU and memory utilization.</p>
+<p>For this task, I developed a web monitoring application using Python that displays CPU and memory utilization.</p>
 <p>Then, I containerized the web application using Docker and pushed the Docker image to my public Docker registry.</p>
 <p>The following Docker image consists of two versions, and for this project, for ArgoCD canary deployment. </p>
 
