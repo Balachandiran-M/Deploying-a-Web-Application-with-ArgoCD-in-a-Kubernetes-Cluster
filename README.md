@@ -1,4 +1,8 @@
 # Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster
+
+![Screenshot 2024-03-15 172752](https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/6f84f668-5573-45da-bc1a-939d915a6782)
+
+
 Task-1: Setup and configuration
  * i installed the kubernetes on aws eks cluster and i installed  
 argocd ,Argo Rollouts controller,and argocd Plugin in  Kubernetes cluster .
