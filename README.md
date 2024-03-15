@@ -23,6 +23,7 @@ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 <h2>Task 2: Creating the GitOps Pipeline</h2>
 <p>For this task, I developed a web monitoring application using Python that displays real-time CPU and memory utilization.</p>
 <p>Then, I containerized the web application using Docker and pushed the Docker image to my public Docker registry.</p>
+<p>The following Docker image consists of two versions, and for this project, for ArgoCD canary deployment. </p>
 
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/06f605d2-be6a-455a-b19e-5a648d9a6dd2" alt="Screenshot 2024-03-15 165422">
 
@@ -93,6 +94,8 @@ spec:
 
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/a12ec252-8378-471a-9553-c8ba84c2fb85" alt="Screenshot 2024-03-15 165922">
 
+<p> I used a load balancer to run these applications for external users, and I opened the inbound rules of the security group for my IP only.</p>
+
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/4524a553-de80-4f9a-b03d-3832987d4aa5" alt="Screenshot 2024-03-15 170025">
 
 <p>To trigger a rollout, I changed the Docker image in the Kubernetes manifest file in the GitHub repository in the rollout definition.</p>
@@ -109,11 +112,23 @@ spec:
 
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/7120b859-7a06-4ab7-a5a2-7accf8c675bf" alt="Screenshot 2024-03-15 171623">
 
+<p> Before and after the revision of the Argo Rollout canary deployment strategy, the status of the application.</p>
+
+
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/6080b811-13b0-42d3-b486-d2dbe7c13d62">
 
 
 
 <h2>Task 4: Challenges and Cleanup</h2>
+<p><strong>Summary:</strong> I developed a web application using Python and containerized the application. Then, I pushed it into a Docker public registry and deployed it in an EKS cluster with ArgoCD using canary deployment.</p>
+
+<p><strong>Challenges:</strong></p>
+<ul>
+  <li>While downloading the Argo Rollouts Kubectl plugin, I faced an issue. <strong>Solution:</strong> I referred to the ArgoCD documentation to solve this problem.</li>
+  <li>I encountered the "out of sync" error when deploying the application in ArgoCD on the EKS cluster. <strong>Solution:</strong> We can identify the root cause by differences in synchronization or by reviewing logs to find errors. We can manually sync the deployment to match the desired state or auto-enable the sync process.</li>
+</ul>
+
+
 <h2>cleanup</h2>
 <ul>
   <li>I deleted the application in ArgoCD on the EKS cluster using the following kubectl command:</li>
