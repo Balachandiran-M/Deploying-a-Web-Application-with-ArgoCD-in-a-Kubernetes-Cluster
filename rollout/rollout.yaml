@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: web-application
+  name: web-app
   labels:
     app: web
 spec:
@@ -11,8 +11,8 @@ spec:
         app: web
     spec:
       containers:
-        - name: web-application
-          image: balachandiran61/argocd-web-app:2.0
+        - name: web-app
+          image: balachandiran61/argocd-web-app:1.0
           containerPort: 5000
   replicas: 5
   selector:
