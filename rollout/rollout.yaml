@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: web-application
-          image: balachandiran61/argocd-web-app:1.0
+          image: balachandiran61/argocd-web-app:2.0
           containerPort: 5000
   replicas: 5
   selector:
