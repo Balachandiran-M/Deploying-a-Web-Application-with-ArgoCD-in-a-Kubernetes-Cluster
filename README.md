@@ -59,12 +59,19 @@ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
 
 <h2>Task 4: Challenges and Cleanup</h2>
+<h2>cleanup</h2>
+<ul>
+  <li>I deleted the application in ArgoCD on the EKS cluster using the following kubectl command:</li>
+</ul>
+<pre><code>kubectl patch app web-app -p '{"metadata": {"finalizers": null}}' --type merge -n argocd</code></pre>
+
+<pre><code>kubectl delete app web-app -n argocd</code></pre>
+
 <ul>
   <li>I deleted the Kubernetes cluster using the following eksctl command:</li>
 </ul>
 <pre><code>eksctl delete cluster --name argocd
 </code></pre>
 <ul>
-  <li>I cleaned up resources including ArgoCD, pods, deployments, rollouts, as well as resources created by the EKS cluster such as VPC, security group, and load balancer.</li>
-  <li>Optionally, I deleted the Docker image from the public Docker registry.</li>
+  <li>The above cleaned up resources including ArgoCD, pods, deployments, rollouts, as well as resources created by the EKS cluster such as VPC, security group, and load balancer.</li>
 </ul>
