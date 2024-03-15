@@ -34,6 +34,61 @@ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/a0626221-ca8b-44c3-ba1e-5033f9d65c25" alt="Screenshot 2024-03-15 165708">
 
 <h2>Task 3: Implementing a Canary Release with Argo Rollouts</h2>
+
+<ul>
+  <li>
+    <p>This YAML file would execute a canary rollout strategy.</p>
+  </li>
+  <li>
+    <p>In the <code>kind</code> section, I choose <code>Rollout</code>, and I specified the API version accordingly.</p>
+  </li>
+  <li>
+    <p>The image specified in the <code>spec</code> section is already pushed to the public Docker registry.</p>
+  </li>
+  <li>
+    <p>In the <code>strategy</code> section, I choose canary deployment. A canary deployment is a deployment pattern that allows you to roll out new code/features to a subset of users as an initial test.</p>
+  </li>
+  <li>
+    <p>In the <code>steps</code> section, I specified a canary deployment for 20% of the deployment (which means 1 pod in this project) and gave a pause duration of 2 minutes.</p>
+  </li>
+  <li>
+    <p>Also, we can leave the empty curly braces. If we leave empty curly braces in the pause duration, it means indefinite time, and if we specify it like that, we have to manually promote them. This time duration is based on use cases. In my case, I gave 2 minutes, and for the rest of the weight, I gave 10 seconds.</p>
+  </li>
+</ul>
+<pre><code>
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: web-app
+  labels:
+    app: web
+spec:
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web-app
+          image: balachandiran61/argocd-web-app:1.0
+          containerPort: 5000
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {duration: 120}
+      - setWeight: 40
+      - pause: {duration: 10}
+      - setWeight: 60
+      - pause: {duration: 10}
+      - setWeight: 80
+      - pause: {duration: 10}
+</code></pre>
+
 <p>For this task, I defined a rollout strategy by modifying the application's deployment to use Argo Rollouts and specified a canary release strategy in the rollout definition.</p>
 
 <img src="https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/a12ec252-8378-471a-9553-c8ba84c2fb85" alt="Screenshot 2024-03-15 165922">
