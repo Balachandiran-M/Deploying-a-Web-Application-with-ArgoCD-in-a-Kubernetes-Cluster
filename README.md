@@ -22,7 +22,7 @@ eksctl create cluster --name argocd --region ap-south-1 --nodegroup-name argo --
 
 
 
-Task-2:
+Task-2: Creating the GitOps Pipeline
  * for this task i developed a web monitoring application using python and the uses of the application is it shows real time cpu and memory utilisation.
  * And then i containerised the web application by using docker and then i pushed the docker image to my public docker registry
 
@@ -39,7 +39,7 @@ Task-2:
 ![Screenshot 2024-03-15 165708](https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/a0626221-ca8b-44c3-ba1e-5033f9d65c25)
 
 
-Task-3:
+Task-3: Implementing a Canary Release with Argo Rollouts
  * And i Define a Rollout Strategy: Modified the application's deployment to use Argo Rollouts, specified a canary release strategy in the rollout definition.
 
 ![Screenshot 2024-03-15 165922](https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/a12ec252-8378-471a-9553-c8ba84c2fb85)
@@ -65,8 +65,7 @@ Task-3:
 ![Screenshot 2024-03-15 171917](https://github.com/Balachandiran-M/Deploying-a-Web-Application-with-ArgoCD-in-a-Kubernetes-Cluster/assets/152047725/97a548cc-bc54-4b9c-a581-152c903ccffb)
 
  
-Task-4: 
-challenges and cleanup
+Task-4: challenges and cleanup
 * delete the kubernetes cluster by using following eksctl commands
   eksctl delete cluster --name argocd ( It will delete the eks cluster including all the resources such as argocd,pods,deployment,rollouts ,and the resources was made by eks cluster such as vpc,security group,load balancer)
 * and we can delete the docker image in public docker registry if we need)
